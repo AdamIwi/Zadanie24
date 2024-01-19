@@ -1,28 +1,38 @@
 #include <stdio.h>
+
 #define PI 3.14159
 
 int main() {
-    float dlugosc, szerokosc, pole;
+    int choice;
+    float length, width, radius, area;
 
-    printf("Podaj dlugosc boku a: ");
-    scanf("%f", &dlugosc);
+    printf("Wybierz opcjê:\n");
+    printf("1. Policz pole prostokata\n");
+    printf("2. Policz pole kola\n");
 
-    printf("Podaj dlugosc boku b: ");
-    scanf("%f", &szerokosc);
+    printf("Wybor: ");
+    scanf("%d", &choice);
 
-    pole = dlugosc * szerokosc;
+    if (choice == 1) { // obliczanie pola prostok¹ta
+        printf("Podaj dlugosc prostokonta\n");
+        scanf("%f", &length);
 
-    printf("Pole prostokata o bokach %0.2f i %0.2f wynosi: %0.2f\n", dlugosc, szerokosc, pole);
+        printf("Podaj serokosc prostokonta\n");
+        scanf("%f", &width);
 
-    float promien;
-    float pole2;
+        area = length * width;
+        printf("Pole prostokata: %f", area);
+    }
+    else if (choice == 2) { // obliczanie pola ko³a
+        printf("Podaj promien kola: ");
+        scanf("%f", &radius);
 
-    printf("Podaj promien kola: ");
-    scanf("%f", &promien);
-
-    pole2 = PI * promien * promien;
-
-    printf("Pole kola o promieniu %.2f wynosi %.2f\n", promien, pole2);
+        area = PI * radius * radius;
+        printf("Pole kola: %f", area);
+    }
+    else {
+        printf("Nieprawidlowy wybor.\n");
+    }
 
     return 0;
 }
